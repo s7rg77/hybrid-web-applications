@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>desarrollo web entorno servidor</title>
+    <title>Hybrid web applications</title>
     <style>
         body {
             margin: 0px;
@@ -14,10 +14,10 @@
         }
 
         header {
-            background-image: url('bg.jpg');
-            background-repeat: no-repeat;
             margin: 10px 0px;
             height: 125px;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
         }
@@ -69,12 +69,12 @@
         }
 
         footer {
+            bottom: 0px;
+            width: 100%;
             background-color: grey;
             color: white;
             text-align: center;
             position: fixed;
-            bottom: 0;
-            width: 100%;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
