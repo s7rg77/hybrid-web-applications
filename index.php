@@ -6,14 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hybrid web applications</title>
     <style>
+        html,
         body {
             margin: 0px;
             padding: 0px;
-            background-color: lightgreen;
-            font-family: 'Comic Sans MS';
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        header {
+        body {
+            background-color: lightgreen;
+            color: black;
+            font-family: 'Comic Sans MS';
+            font-size: 16px;
+        }
+
+        #title {
             margin: 10px 0px;
             height: 125px;
             background-image: url('bg.jpg');
@@ -29,11 +38,16 @@
             text-shadow: 2px 2px 2px black;
         }
 
-        #head {
+        header {
             margin-top: 10px;
             margin-right: 10px;
             display: flex;
             justify-content: flex-end;
+        }
+
+        main {
+            margin-bottom: 10px;
+            flex: 1;
         }
 
         .home,
@@ -69,12 +83,10 @@
         }
 
         footer {
-            bottom: 0px;
             width: 100%;
             background-color: grey;
             color: white;
             text-align: center;
-            position: fixed;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -133,32 +145,35 @@
 </head>
 
 <body>
-    <div id="head">
+    <header>
         <button class="doc" onclick="goDoc()">doc</button>
         <button class="git" onclick="goGit()">git</button>
         <button class="home" onclick="goHome()">back</button>
-    </div>
-    <header>
-    <h1>selecciona pokemon</h1>
     </header>
-    <div class="list">
-        <select id="select">
-            <option value=""></option>
-            <?php
-            $pokemonNames = file_get_contents('https://pokeapi.co/api/v2/pokemon?limit=151');
-            $pokemonNames = json_decode($pokemonNames, true);
-            foreach ($pokemonNames['results'] as $pokemon) {
-                echo "<option value='" . $pokemon['name'] 
-                . "'>" . ucfirst($pokemon['name']) . "</option>";
-            }
-            ?>
-        </select>
-    </div>
-    <div id="info"></div>
-</body>
+    <main>
+        <div id="title">
+        <h1>selecciona pokemon</h1>
+        </div>
+        <div class="list">
+            <select id="select">
+                <option value=""></option>
+                <?php
+                $pokemonNames = file_get_contents('https://pokeapi.co/api/v2/pokemon?limit=151');
+                $pokemonNames = json_decode($pokemonNames, true);
+                foreach ($pokemonNames['results'] as $pokemon) {
+                    echo "<option value='" . $pokemon['name'] 
+                    . "'>" . ucfirst($pokemon['name']) . "</option>";
+                }
+                ?>
+            </select>
+        </div>
+        <div id="info"></div>
+    </main>
 
-<footer>
-    <h3>desarrollo web entorno servidor</h3>
-</footer>
+    <footer>
+        <h3>desarrollo web entorno servidor</h3>
+    </footer>
+
+</body>
 
 </html>
